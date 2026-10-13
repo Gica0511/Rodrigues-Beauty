@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rodrigues Beauty — Lash designer</title>
+<meta name="description" content="Extensão de cílios, lash lift e design de sobrancelhas com a Giovanna Rodrigues.">
+<meta name="theme-color" content="#590503">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400;1,6..96,600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --creme: #fee9d9;
+    --vinho: #590503;
+    --creme-escuro: #f6d6bd;
+    --creme-suave: #f3cfb8;
+    --vinho-suave: #7d3a35;
+    --serif: 'Bodoni Moda', Georgia, 'Times New Roman', serif;
+    --sans: 'Jost', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--sans);
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--vinho);
+    background: var(--creme);
+  }
+  a { color: inherit; text-decoration: none; }
+  a:hover { opacity: .85; }
+  a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+  h1, h2, h3, p { margin: 0; }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+
+  .vinho { background: var(--vinho); color: var(--creme); }
+  .creme { background: var(--creme); color: var(--vinho); }
+
+  .titulo {
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.05;
+  }
+  .titulo--grande { font-size: clamp(40px, 6vw, 80px); }
+  .titulo--medio { font-size: clamp(32px, 4vw, 52px); line-height: 1.1; }
+  .subtitulo {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 1.15;
+  }
+  .chamada {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+  .vinho .suave { color: var(--creme-suave); }
+  .creme .suave { color: var(--vinho-suave); }
+
+  section { padding: 112px 0; }
+
+  /* Botões */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+    padding: 0 32px;
+    border-radius: 999px;
+    font-weight: 500;
+    text-align: center;
+  }
+  .btn--cheio { background: var(--creme); color: var(--vinho); }
+  .btn--contorno { border: 1.5px solid var(--creme); color: var(--creme); }
+  .botoes { display: flex; flex-wrap: wrap; gap: 16px; }
+
+  /* Topo */
+  header { padding: 24px 0 104px; }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 32px;
+  }
+  .marca {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 26px;
+  }
+  .menu { display: flex; flex-wrap: wrap; gap: 0 28px; font-size: 16px; }
+  .menu a { display: inline-flex; align-items: center; min-height: 44px; }
+
+  .hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 56px 64px;
+    margin-top: 80px;
+  }
+  .hero__texto { flex: 1 1 480px; min-width: 0; }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(48px, 7vw, 104px);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+  }
+  .hero p { margin: 28px 0 40px; max-width: 34em; font-size: 20px; }
+  .hero__cilios { flex: 0 1 400px; width: 100%; max-width: 400px; }
+  .hero__cilios svg { display: block; width: 100%; height: auto; }
+
+  /* Sobre */
+  .sobre { display: flex; flex-wrap: wrap; align-items: center; gap: 56px 80px; }
+  .foto {
+    flex: 0 1 360px;
+    width: 100%;
+    max-width: 360px;
+    aspect-ratio: 4 / 5;
+    border-radius: 999px 999px 0 0;
+    background: var(--creme-escuro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+    color: var(--vinho-suave);
+    font-size: 16px;
+    overflow: hidden;
+  }
+  .foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .sobre__texto { flex: 1 1 420px; min-width: 0; }
+  .sobre__texto h2 { margin-bottom: 40px; }
+  .fato { border-top: 1px solid rgba(89, 5, 3, .25); padding: 22px 0; }
+  .fato:last-child { border-bottom: 1px solid rgba(89, 5, 3, .25); }
+  .fato p:first-child { margin-bottom: 6px; }
+  .fato .destaque { font-family: var(--serif); font-size: 28px; line-height: 1.25; margin: 0; }
+
+  /* Cílios */
+  #cilios .titulo { margin-bottom: 64px; }
+  .colunas { display: flex; flex-wrap: wrap; gap: 56px 48px; }
+  .coluna {
+    flex: 1 1 300px;
+    min-width: 0;
+    border-top: 1px solid rgba(254, 233, 217, .4);
+    padding-top: 28px;
+  }
+  .coluna .subtitulo { margin-bottom: 20px; }
+  .preco { display: flex; align-items: baseline; gap: 12px; padding: 10px 0; }
+  .preco i {
+    flex: 1;
+    min-width: 16px;
+    border-bottom: 1px dotted rgba(254, 233, 217, .55);
+  }
+  .preco b { font-weight: 500; }
+
+  /* Sobrancelhas */
+  .sobrancelhas { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 56px 80px; }
+  .sobrancelhas__titulo { flex: 1 1 320px; min-width: 0; }
+  .sobrancelhas__lista { flex: 2 1 480px; min-width: 0; }
+  .servico { border-top: 1px solid rgba(89, 5, 3, .3); padding: 28px 0 36px; }
+  .servico:last-child { padding-bottom: 0; }
+  .servico .subtitulo { margin-bottom: 12px; }
+  .servico p { max-width: 34em; }
+
+  /* Agendar */
+  #agendar .titulo { margin-bottom: 16px; }
+  #agendar .lead { margin-bottom: 44px; max-width: 34em; font-size: 20px; }
+
+  /* Política e regras */
+  .duas-colunas { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 64px 88px; }
+  .duas-colunas > div { flex: 1 1 380px; min-width: 0; }
+  .duas-colunas h2 { margin-bottom: 20px; }
+  .duas-colunas p { max-width: 30em; }
+  .duas-colunas p + p { margin-top: 20px; }
+  .sinal { margin-top: 36px; border-top: 1px solid rgba(89, 5, 3, .3); padding-top: 20px; }
+  .sinal .valor { font-family: var(--serif); font-size: 72px; line-height: 1.1; margin-top: 0; }
+
+  /* Pagamento */
+  #pagamento { padding-bottom: 96px; }
+  #pagamento h2 { margin-bottom: 44px; }
+  .formas { display: flex; flex-wrap: wrap; gap: 24px; }
+  .forma {
+    flex: 1 1 260px;
+    min-width: 0;
+    border: 1px solid rgba(254, 233, 217, .4);
+    border-radius: 24px;
+    padding: 28px 32px;
+  }
+  .forma .subtitulo { margin-bottom: 0; }
+  .forma p { margin-top: 8px; }
+
+  /* Rodapé */
+  footer { padding: 0 0 48px; }
+  .rodape {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 32px;
+    border-top: 1px solid rgba(254, 233, 217, .3);
+    padding-top: 28px;
+    font-size: 16px;
+  }
+  .rodape .marca { min-height: 0; font-size: 24px; }
+  .rodape a { display: inline-flex; align-items: center; min-height: 44px; }
+
+  @media (max-width: 640px) {
+    body { font-size: 17px; }
+    .wrap { padding: 0 20px; }
+    section { padding: 72px 0; }
+    header { padding-bottom: 72px; }
+    .hero { margin-top: 48px; }
+    .btn { width: 100%; }
+    .sinal .valor { font-size: 56px; }
+    .fato .destaque { font-size: 24px; }
+    .subtitulo { font-size: 28px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body id="topo">
+
+<header class="vinho">
+  <div class="wrap">
+    <nav aria-label="Principal">
+      <a class="marca" href="#topo">Rodrigues Beauty</a>
+      <div class="menu">
+        <a href="#sobre">Sobre</a>
+        <a href="#cilios">Cílios</a>
+        <a href="#sobrancelhas">Sobrancelhas</a>
+        <a href="#agendar">Agendar</a>
+        <a href="#regras">Regras</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div class="hero__texto">
+        <h1>Seu olhar, fio a fio.</h1>
+        <p class="suave">Extensão de cílios, lash lift e design de sobrancelhas com a Giovanna Rodrigues.</p>
+        <div class="botoes">
+          <a class="btn btn--cheio" href="#agendar">Agendar horário</a>
+          <a class="btn btn--contorno" href="#cilios">Ver serviços</a>
+        </div>
+      </div>
+      <div class="hero__cilios">
+        <svg viewBox="0 0 400 200" aria-hidden="true" fill="none" stroke="#fee9d9" stroke-linecap="round">
+          <path d="M40 180 Q200 110 360 180" stroke-width="4"/>
+          <path d="M40 180 Q20 150 10 112" stroke-width="3"/>
+          <path d="M72 167 Q52 130 46 92" stroke-width="3"/>
+          <path d="M104 158 Q90 112 88 70" stroke-width="3"/>
+          <path d="M136 151 Q124 100 130 52" stroke-width="3"/>
+          <path d="M168 146 Q160 90 172 42" stroke-width="3"/>
+          <path d="M200 145 Q204 88 204 34" stroke-width="3"/>
+          <path d="M232 146 Q240 90 228 42" stroke-width="3"/>
+          <path d="M264 151 Q276 100 270 52" stroke-width="3"/>
+          <path d="M296 158 Q310 112 312 70" stroke-width="3"/>
+          <path d="M328 167 Q348 130 354 92" stroke-width="3"/>
+          <path d="M360 180 Q380 150 390 112" stroke-width="3"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- 1. Apresentação da profissional -->
+  <section id="sobre" class="creme">
+    <div class="wrap sobre">
+      <!-- Para colocar a foto: troque o texto abaixo por <img src="foto-giovanna.jpg" alt="Giovanna Rodrigues"> -->
+      <div class="foto">[Foto da Giovanna]</div>
+      <div class="sobre__texto">
+        <h2 class="titulo" style="font-size: clamp(36px, 5vw, 64px); line-height: 1.08;">Sou a Giovanna Rodrigues.</h2>
+        <div class="fato">
+          <p class="destaque">Sou profissional certificada.</p>
+        </div>
+        <div class="fato">
+          <p class="suave">Atendo no endereço:</p>
+          <p class="destaque">[Endereço do studio: rua, número, bairro e cidade]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Extensão de cílios -->
+  <section id="cilios" class="vinho">
+    <div class="wrap">
+      <p class="chamada suave">Experiência Rodrigues Beauty</p>
+      <h2 class="titulo titulo--grande">Extensão de cílios</h2>
+
+      <div class="colunas">
+        <div class="coluna">
+          <h3 class="subtitulo">Volume brasileiro</h3>
+          <div class="preco"><span>Aplicação</span><i></i><b>R$ [valor]</b></div>
+          <div class="preco"><span>Manutenção</span><i></i><b>R$ [valor]</b></div>
+          <div class="preco"><span>Combo</span><i></i><b>R$ [valor]</b></div>
+          <div class="preco"><span>Remoção</span><i></i><b>R$ [valor]</b></div>
+        </div>
+
+        <div class="coluna">
+          <h3 class="subtitulo">Volume egípcio</h3>
+          <div class="preco"><span>Aplicação</span><i></i><b>R$ [valor]</b></div>
+          <div class="preco"><span>Manutenção</span><i></i><b>R$ [valor]</b></div>
+          <div class="preco"><span>Combo</span><i></i><b>R$ [valor]</b></div>
+          <div class="preco"><span>Remoção</span><i></i><b>R$ [valor]</b></div>
+        </div>
+
+        <div class="coluna">
+          <h3 class="subtitulo">Lash lift</h3>
+          <div class="preco"><span>Valor</span><i></i><b>R$ [valor]</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Sobrancelhas -->
+  <section id="sobrancelhas" class="creme">
+    <div class="wrap sobrancelhas">
+      <div class="sobrancelhas__titulo">
+        <p class="chamada suave">Experiência Rodrigues Beauty</p>
+        <h2 class="titulo titulo--grande">Sobrancelhas</h2>
+      </div>
+      <div class="sobrancelhas__lista">
+        <div class="servico">
+          <h3 class="subtitulo">Designer de sobrancelhas</h3>
+          <p>Limpeza e definição do formato natural.</p>
+        </div>
+        <div class="servico">
+          <h3 class="subtitulo">Designer de sobrancelhas com henna</h3>
+          <p>Design personalizado com aplicação de henna para realçar e preencher visualmente as sobrancelhas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Como agendar -->
+  <section id="agendar" class="vinho">
+    <div class="wrap">
+      <h2 class="titulo titulo--grande">Como agendar?</h2>
+      <p class="lead suave">Escolha como prefere marcar o seu horário.</p>
+      <div class="botoes">
+        <!-- COLOQUE AQUI o link da sua agenda do Planimani no lugar do "#" -->
+        <a class="btn btn--cheio" href="#" target="_blank" rel="noopener">Agendar pelo Planimani</a>
+        <a class="btn btn--contorno" href="https://www.instagram.com/rodriguessbeauty_/" target="_blank" rel="noopener">Chamar no Instagram @rodriguessbeauty_</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 e 6. Política de agendamento e regras do studio -->
+  <section id="regras" class="creme">
+    <div class="wrap duas-colunas">
+      <div>
+        <h2 class="titulo titulo--medio">Política de agendamento</h2>
+        <p>Será necessário o envio de um sinal de agendamento, que será abatido no valor do serviço.</p>
+        <div class="sinal">
+          <p class="suave">Valor do sinal</p>
+          <p class="valor">R$ 25,00</p>
+        </div>
+      </div>
+      <div>
+        <h2 class="titulo titulo--medio">Regras do studio</h2>
+        <p>Há tolerância de 15 minutos de atraso. Se esse tempo for ultrapassado, o horário poderá ser remarcado.</p>
+        <p>Não há devolução do sinal, mas ele pode ser usado para remarcar o novo horário.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Formas de pagamento -->
+  <section id="pagamento" class="vinho">
+    <div class="wrap">
+      <h2 class="titulo titulo--medio">Formas de pagamento</h2>
+      <div class="formas">
+        <div class="forma">
+          <h3 class="subtitulo">Pix</h3>
+        </div>
+        <div class="forma">
+          <h3 class="subtitulo">Dinheiro</h3>
+          <p class="suave">Por gentileza, já traga trocado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="vinho">
+  <div class="wrap">
+    <div class="rodape">
+      <span class="marca">Rodrigues Beauty</span>
+      <a href="https://www.instagram.com/rodriguessbeauty_/" target="_blank" rel="noopener">@rodriguessbeauty_</a>
+      <span class="suave">© 2026 Rodrigues Beauty</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
